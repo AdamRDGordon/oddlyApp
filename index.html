@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Oddly App Prototype</title>
+  <meta name="description" content="Oddly mobile web app prototype for Crew, parents, and neighbours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="login-screen" id="loginScreen" hidden>
+    <div class="login-panel">
+      <div class="login-top">
+        <div class="login-brand">ODDLY</div>
+        <div class="language-switch" aria-label="Language">
+          <button class="active" data-language="en">EN</button>
+          <button data-language="sv">SV</button>
+        </div>
+      </div>
+      <div class="eyebrow" data-i18n="secureAccess">Secure account access</div>
+      <h1 data-i18n="signInTitle">Sign in to your Oddly account</h1>
+      <p data-i18n="signInCopy">Each account only has access to its own role and information.</p>
+      <div class="demo-notice">
+        <strong data-i18n="prototypeAccess">Prototype access</strong>
+        <span data-i18n="chooseDemo">Choose a demo account to preview its private workspace.</span>
+      </div>
+      <div class="account-list" id="accountList"></div>
+      <a class="contact-link login-help" href="mailto:info@oddly.work">info@oddly.work</a>
+    </div>
+  </section>
+
+  <div class="app-shell" id="appShell" hidden>
+    <header class="app-header">
+      <button class="brand" data-action="home" aria-label="Oddly home">ODDLY</button>
+      <div class="header-actions">
+        <div class="language-switch" aria-label="Language">
+          <button class="active" data-language="en">EN</button>
+          <button data-language="sv">SV</button>
+        </div>
+        <button class="icon-button" data-action="notifications" aria-label="Notifications">
+          <span>●</span>
+          <b>3</b>
+        </button>
+        <button class="avatar-button" data-action="profile" aria-label="Profile">A</button>
+      </div>
+    </header>
+
+    <div class="role-bar">
+      <span class="account-lock" aria-hidden="true">●</span>
+      <strong id="accountIdentity"></strong>
+      <span id="accountRole"></span>
+      <span class="prototype-pill" data-i18n="prototype">Prototype</span>
+      <button class="sign-out-button" data-action="sign-out" data-i18n="signOut">Sign out</button>
+    </div>
+
+    <main id="app" tabindex="-1"></main>
+
+    <nav class="bottom-nav" aria-label="App navigation">
+      <button class="active" data-tab="home"><span>⌂</span><b data-i18n="home">Home</b></button>
+      <button data-tab="jobs"><span>⌕</span><b data-i18n="jobs">Jobs</b></button>
+      <button data-tab="activity"><span>✓</span><b data-i18n="activity">Activity</b></button>
+      <button data-tab="profile"><span>○</span><b data-i18n="profile">Profile</b></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-action="close-modal" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

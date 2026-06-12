@@ -1,0 +1,23 @@
+{
+  "configuration": {
+    "supportEmail": "info@oddly.work",
+    "adminEmail": "info@oddly.work",
+    "directoryEmail": "info@oddly.work",
+    "defaultLocale": "en",
+    "supportedLocales": ["en", "sv"]
+  },
+  "entities": {
+    "user": ["id", "role", "email", "phone", "locale", "status", "createdAt"],
+    "crewProfile": ["userId", "parentUserId", "dateOfBirth", "level", "xp", "approvedRadiusKm", "weeklyHourLimit"],
+    "parentProfile": ["userId", "linkedCrewIds", "notificationPreferences"],
+    "neighbourProfile": ["userId", "identityStatus", "addressStatus", "trustedStatus"],
+    "adminProfile": ["userId", "permissions", "markets", "mfaEnabled", "lastLoginAt"],
+    "job": ["id", "neighbourId", "title", "description", "category", "address", "price", "scheduledAt", "status"],
+    "jobApplication": ["id", "jobId", "crewId", "status", "createdAt"],
+    "parentApproval": ["id", "jobId", "crewId", "parentId", "status", "decidedAt"],
+    "completionEvidence": ["id", "jobId", "photoUrls", "submittedAt", "confirmedAt"],
+    "notification": ["id", "userId", "type", "channel", "status", "createdAt"],
+    "adminAuditLog": ["id", "adminUserId", "action", "entityType", "entityId", "metadata", "createdAt"],
+    "marketMetric": ["market", "period", "jobCount", "activeCrewCount", "grossJobValue", "currency"]
+  }
+}
